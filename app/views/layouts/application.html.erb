@@ -7,8 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<header>
+	<div class='container'>
+		<div class='navigation'>
+			<%= link_to 'Users', users_path %>
+			<%= link_to 'Products', products_path %>
+		</div>
+	</div>
+	</header>
 
-<%= yield %>
+	<div class='content'>
+		<%= yield %>
+	</div>
+
+	<footer>
+		<div class='container'>
+
+		</div>
+	</footer>
 
 </body>
 </html>

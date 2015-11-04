@@ -10,5 +10,11 @@
   <%= @user.surname %>
 </p>
 
+<p>
+  <strong>Products:</strong>
+  <% @products.each do |p| %>
+  	<%= p.name %>
+  <% end %>
+</p>
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
