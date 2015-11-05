@@ -38,35 +38,52 @@ header {
 }
 
 .content {
-	height: 630px;
 	margin: 0 auto;
 	max-width: 1200px;
+	max-height: auto;
 	text-align: left;
 	margin-top: 60px;
+	padding-bottom: 50px;
 }
 
-thead tr {
+tr {
 	background-color: #E6E6FA;
 }
-table, td {
+thead tr{
+	background-color: #778899;
+}
+table {
 	border: 1px solid black;
 }
 
-th{
-	width: 500px;
-}
-tr th:nth-child(4){
+
+.user-table tr th:nth-child(4){
 	width: 170px;
 }
 
-tr th:nth-child(1){
+.user-table tr th:nth-child(1){
 	width: 30px;
 }
+.user-table tr th {
+	width: 500px;
+}
+.product-table th{
+	width: 515px;
+}
+.product-table tr th:nth-child(3){
+	width: 170px;
+}
+
+
 tr {
 	text-align: center;
 }
 
 footer {
 	background-color: #333333;
-	height: 58px;
+	width: 100%;
+	height: 50px;
+	position: absolute;
+	bottom: 0;
+	left: 0;
 }

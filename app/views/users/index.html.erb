@@ -2,7 +2,7 @@
 
 <h1>Listing Users</h1>
 
-<table>
+<table class='user-table'>
   <thead>
     <tr>
       <th>ID</th>
@@ -15,7 +15,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.id %></td>
+        <td id='id'><%= user.id %></td>
         <td><%= user.name %></td>
         <td><%= user.surname %></td>
         <td><%= link_to 'Show', user %></td>
