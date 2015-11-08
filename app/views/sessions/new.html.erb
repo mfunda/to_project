@@ -1,0 +1,27 @@
+<div class='login-content'>
+	<div class='login-tabel'>
+		<h1> Log in </h1>
+		<ul>
+			<%= form_for(:session, url: login_admin_path) do |f| %>
+			<li>
+				<%= f.label :login %>
+				<%= f.text_field :login, class: 'lfield' %>
+			</li>
+		
+			<li>
+				<%= f.label :password %>
+				<%= f.password_field :password, class: 'lfield' %>
+			</li>
+		
+			<li>
+				<%= f.submit "Log in" %>
+			</li>
+			<li>
+				<%= f.label :remember_me, class: 'remember'%>
+      			<%= f.check_box :remember_me %>
+   		        <span>Remember me on this computer</span>
+      		</li>
+		</ul>
+		<% end %>
+	</div>
+</div>

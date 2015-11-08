@@ -4,4 +4,6 @@ class User < ActiveRecord::Base
 					 presence: true
 	validates :surname, length: {maximum: 15},
 					 presence: true
+
+
 end
