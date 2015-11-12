@@ -9,7 +9,16 @@
   <strong>User:</strong>
   <%= @product.user_id %>
 </p>
+
+<p>
+  <strong>Functions:</strong>
+  <% @functions.each do |f| %>
+  <%= link_to f.name, f%> 
+  <% end %>
+</p>
+
 <% if logged_in? %>
 <%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Destroy', @product, method: :delete, data: { confirm: 'Are you sure?' } %> |
 <% end %>
 <%= link_to 'Back', products_path %>

@@ -73,8 +73,15 @@ table {
 .product-table tr th:nth-child(3){
 	width: 170px;
 }
-
-
+.function-table tr th {
+	width: 1000px;
+}
+.function-table tr th:nth-child(1) {
+	width: 30px;
+}
+.function-table tr th:nth-child(3) {
+	width: 170px;
+}
 tr {
 	text-align: center;
 }
@@ -125,8 +132,9 @@ footer p {
 }
 
 .lfield {
-	position: absolute;
-	left: 720px;
+	position: relative;
+	float: right;
+	right: 100px;
 }
 
 .remember {

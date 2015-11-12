@@ -8,9 +8,10 @@ class SessionsController < ApplicationController
   		log_in admin
   		remember admin
   		redirect_to users_path
+      flash[:notice] = 'Logged in'
   	else
-  		flash.now[:danger] = 'Invalid login/password combination'
   		render 'new'
+      flash[:notice] = 'Invalid login/password combination'
   	end
   end
 

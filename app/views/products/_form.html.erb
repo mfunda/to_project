@@ -19,6 +19,13 @@
     <%= f.label :user_id %><br>
     <%= f.number_field :user_id %>
   </div>
+
+  <div class='field'>
+  <% for func in @function %>
+    <%= check_box_tag "[function_id][]", func.id, @product.function_ids.include?(func.id), id: dom_id(func) %>
+    <%= label_tag dom_id(func), func.name %><br>
+    <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

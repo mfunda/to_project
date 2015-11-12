@@ -1,0 +1,28 @@
+<%= form_for(@function) do |f| %>
+  <% if @function.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@function.errors.count, "error") %> prohibited this function from being saved:</h2>
+
+      <ul>
+      <% @function.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class='field'>
+    <% for prod in @product %>
+      <%= check_box_tag "[product_id][]", prod.id, @function.product_ids.include?(prod.id), id: dom_id(prod) %>
+    <%= label_tag dom_id(prod), prod.name %><br>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

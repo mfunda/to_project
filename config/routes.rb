@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   
   resources :products
   resources :users
+  resources :functions
+
   get 'login_admin' => 'sessions#new'
   post 'login_admin' => 'sessions#create'
   delete 'logout_admin' => 'sessions#destroy'

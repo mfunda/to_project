@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @function.name %>
+</p>
+
+<p>
+  <strong>Products:</strong>
+  <% @products.each do |p| %>
+  <%= link_to p.name, p%>
+  <% end %>
+</p>
+
+<% if logged_in? %>
+	<%= link_to 'Edit', edit_function_path(@function) %> |
+	<%= link_to 'Destroy', @function, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<% end %>
+<%= link_to 'Back', functions_path %>

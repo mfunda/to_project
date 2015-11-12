@@ -11,9 +11,12 @@
 </p>
 
 <p>
-  <strong>Products:</strong>
+  <strong>Products and their functions:</strong>
   <% @products.each do |p| %>
-  	<%= p.name %>
+  	<%= link_to p.name, p %>
+  	(<% p.functions.each do |f| %>
+  		<%= link_to f.name, f %>
+  	<% end %>)
   <% end %>
 </p>
 <% if logged_in? %>
