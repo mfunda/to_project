@@ -1,6 +1,5 @@
 class CreateOperations < ActiveRecord::Migration
   def change
-  	drop_table :operations
     create_table :operations do |t|
       t.string :name
       t.decimal :rate
