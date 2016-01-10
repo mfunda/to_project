@@ -13,12 +13,14 @@
 		<%= link_to 'Users', users_path %>
 		<%= link_to 'Products', products_path %>
 		<%= link_to 'Functions', functions_path %>
+		<%= link_to 'Tasks', tasks_path %>
+		<%= link_to 'Operations', operations_path %>				
 		<% if logged_in? %>
 			<%= link_to "Log out", logout_admin_path, method: :delete, class: 'log' %>
 		<% end %>
 		<% if !logged_in? %>
 			<%= link_to 'Login', login_admin_path, class: 'log' %>
-			<% end %>
+		<% end %>
 		</div>
 	</div>
 	</header>
@@ -26,6 +28,8 @@
 	<div class='content'>
 		<%= yield %>
 	</div>
+
+	<%= debug(params) if Rails.env.development? %>
 	<footer>
 		<div class='container'>
 			<p>©mfunda</p>

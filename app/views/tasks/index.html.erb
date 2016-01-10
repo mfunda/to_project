@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Tasks</h1>
+
+<table class='user-table'>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Start</th>
+      <th colspan="4">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td id='id'><%= task.id %></td>
+        <td><%= task.name %></td>
+        <td><%= task.start %></td>                
+        <td><%= link_to 'Show', task %></td>
+        <td><%= link_to 'Edit', edit_task_path(task) %></td>
+        <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<strong>Total Users's Cost: </strong><%= @users %> $<br>
+<strong>Total Operations' Cost: </strong><%= @operations %> $<br>
+<strong>Total Task's Cost: </strong><%= @cost %> $
+<br><br>
+
+<%= link_to 'New Task', new_task_path %>

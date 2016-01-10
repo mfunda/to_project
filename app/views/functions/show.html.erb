@@ -6,6 +6,11 @@
 </p>
 
 <p>
+  <strong>Factor:</strong>
+  <%= @function.factor %>
+</p>
+
+<p>
   <strong>Products:</strong>
   <% @products.each do |p| %>
   <%= link_to p.name, p%>

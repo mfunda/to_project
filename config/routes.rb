@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :operations
+  resources :operations
+  resources :tasks
   get 'admin/new'
   
   resources :products

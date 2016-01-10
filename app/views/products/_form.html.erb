@@ -20,6 +20,11 @@
     <%= f.number_field :user_id %>
   </div>
 
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+
   <div class='field'>
   <% for func in @function %>
     <%= check_box_tag "[function_id][]", func.id, @product.function_ids.include?(func.id), id: dom_id(func) %>

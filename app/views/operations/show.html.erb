@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @operation.name %>
+</p>
+
+<p>
+  <strong>Rate:</strong>
+  <%= @operation.rate %>
+</p>
+
+<p>
+	<strong>Duration:</strong>
+	<%= @operation.duration %>
+</p>
+
+<p>
+	<strong>Users:</strong>
+	<% @users.each do |u| %>
+		<%= link_to u.name, u %>
+	<%end %>
+</p>
+
+<p>
+	<strong>Users' average rate:</strong>
+	<%= @operation.users_average_rate %>
+</p>
+
+<p>
+	<strong>Operation cost:</strong>
+	<%= @operation.total_operation_rate %> $
+</p>
+
+<p>
+	<strong>Total Users' cost:</strong>
+	<%= @operation.total_users_rate %> $
+</p>
+
+<p>
+	<strong>Total Operation cost:</strong>
+	<%= @operation.total_operation_cost %> $
+</p>
+
+<% if logged_in? %>
+	<%= link_to 'Edit', edit_operation_path(@operation) %> |
+	<%= link_to 'Destroy', @operation, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<% end %>
+<%= link_to 'Back', operations_path %>

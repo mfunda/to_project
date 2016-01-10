@@ -11,11 +11,22 @@
 </p>
 
 <p>
+  <strong>Price:</strong>
+  <%= @product.price %>
+</p>
+
+<p>
+  <strong>Total Price:</strong>
+  <%= @product.total %>
+</p>
+
+<p>
   <strong>Functions:</strong>
   <% @functions.each do |f| %>
   <%= link_to f.name, f%> 
   <% end %>
 </p>
+
 
 <% if logged_in? %>
 <%= link_to 'Edit', edit_product_path(@product) %> |

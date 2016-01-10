@@ -11,6 +11,16 @@
 </p>
 
 <p>
+  <strong>Rate:</strong>
+  <%= @user.rate %>
+</p>
+
+<p>
+  <strong>Average:</strong>
+  <%= @user.average %>
+</p>
+
+<p>
   <strong>Products and their functions:</strong>
   <% @products.each do |p| %>
   	<%= link_to p.name, p %>

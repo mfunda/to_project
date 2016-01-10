@@ -15,6 +15,12 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
+
+  <div class="field">
+    <%= f.label :factor %><br>
+    <%= f.text_field :factor %>
+  </div>
+
   <div class='field'>
     <% for prod in @product %>
       <%= check_box_tag "[product_id][]", prod.id, @function.product_ids.include?(prod.id), id: dom_id(prod) %>

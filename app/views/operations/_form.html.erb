@@ -1,0 +1,41 @@
+<%= form_for(@operation) do |f| %>
+  <% if @operation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@operation.errors.count, "error") %> prohibited this operation from being saved:</h2>
+
+      <ul>
+      <% @operation.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class='field'>
+    <%= f.label :name %> <br>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :rate %> <br>
+    <%= f.text_field :rate %>
+  </div>
+
+  <div class='field'>
+    <%= f.label :duration %> <br>
+    <%= f.text_field :duration %>
+  </div>
+
+  <% if @check == 1 %>
+  <div class='field'>
+    <% for u in @users %>
+      <%= check_box_tag "[user_id][]", u.id, @operation.user_ids.include?(u.id), id: dom_id(u) %>
+      <%= label_tag dom_id(u), u.name %><br>
+    <% end %>
+  </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

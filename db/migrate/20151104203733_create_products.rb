@@ -5,6 +5,5 @@ class CreateProducts < ActiveRecord::Migration
 	  t.references :user, index: true, foreign_key: true
       t.timestamps null: false
     end
-    add_index :products, [:user_id]
   end
 end

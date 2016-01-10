@@ -1,0 +1,66 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @task.name %>
+</p>
+
+<p>
+	<strong>Operations:</strong>
+	<% @operations.each do |o| %>
+		<%= link_to o.name, o %>
+	<% end %>
+</p>
+
+<p>
+	<strong>Total Operations's duration: </strong>
+	<%= @task.total_duration %> seconds
+</p>
+
+<p>
+	<strong>Total Operation's cost: </strong>
+	<%= @task.total_rate %> $
+</p>
+
+<p>
+	<strong>Total Users's cost: </strong>
+	<%= @task.total_user_rate %> $
+</p>
+
+<p>
+	<strong>Total Task cost: </strong>
+	<%= @task.total_task_rate %> $
+</p>
+
+<p>
+	<strong>Operations' average cost: </strong>
+	<%= @task.average_cost %> $
+</p>
+
+<p>
+	<strong>Users' average rate:</strong>
+	<%= @task.total_users_average_rate %> $/min
+</p>
+
+<p>
+	<strong>Task average cost: </strong>
+	<%= @task.average_total %> $
+</p>
+
+<p>
+  <strong>Starts at:</strong>
+  <%= @task.start %>
+</p>
+
+<p>
+	<strong>Finishes at: </strong>
+	<%= @task.task_end %>
+</p>
+
+
+
+<% if logged_in? %>
+	<%= link_to 'Edit', edit_task_path(@task) %> |
+	<%= link_to 'Destroy', @task, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<% end %>
+<%= link_to 'Back', tasks_path %>
