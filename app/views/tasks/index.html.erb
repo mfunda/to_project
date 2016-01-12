@@ -8,6 +8,7 @@
       <th>ID</th>
       <th>Name</th>
       <th>Start</th>
+      <th>Status</th>
       <th colspan="4">Actions</th>
     </tr>
   </thead>
@@ -17,7 +18,8 @@
       <tr>
         <td id='id'><%= task.id %></td>
         <td><%= task.name %></td>
-        <td><%= task.start %></td>                
+        <td><%= task.start %></td>
+        <td><%= task.set_status %></td>                
         <td><%= link_to 'Show', task %></td>
         <td><%= link_to 'Edit', edit_task_path(task) %></td>
         <td><%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %></td>

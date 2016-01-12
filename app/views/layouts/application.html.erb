@@ -14,7 +14,8 @@
 		<%= link_to 'Products', products_path %>
 		<%= link_to 'Functions', functions_path %>
 		<%= link_to 'Tasks', tasks_path %>
-		<%= link_to 'Operations', operations_path %>				
+		<%= link_to 'Operations', operations_path %>
+		<%= link_to 'History', histories_path %>				
 		<% if logged_in? %>
 			<%= link_to "Log out", logout_admin_path, method: :delete, class: 'log' %>
 		<% end %>

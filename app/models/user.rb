@@ -6,6 +6,16 @@ class User < ActiveRecord::Base
 					 presence: true
 	validates :surname, length: {maximum: 15},
 					 presence: true
+	attr_accessor :total_user_cost
+	
+	def set_user
+		if self.id != nil
+			@user = User.find(self.id)
+		else
+			@user = User.new
+		end
+	end
+
 
 	def totals
 		if self.id != nil
@@ -25,4 +35,5 @@ class User < ActiveRecord::Base
 		end
 		self.average = totals
 	end
+
 end

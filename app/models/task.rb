@@ -1,13 +1,37 @@
 class Task < ActiveRecord::Base
 	has_many :operations
 
-
-	def total_duration
+	def set_task
 		if self.id != nil
 			@task = Task.find(self.id)
 		else
 			@task = Task.new
 		end
+	end
+
+	def search(from, to)
+ 		self.set_task
+		@time = @task.task_end
+		if @time >= from.to_s && @time <= to.to_s
+			true
+		else
+			false
+		end
+ 	end
+
+	def set_status
+		self.set_task
+		if DateTime.now > @task.task_end
+			status = "Finished"
+		elsif DateTime.now > @task.start && DateTime.now < @task.task_end
+			status = "In progress"
+		else
+			status = "Not started yet"
+		end
+	end
+
+	def total_duration
+		self.set_task
 		@operations = @task.operations
 		total = 0
 		@operations.each do |o|
@@ -19,11 +43,7 @@ class Task < ActiveRecord::Base
 	end
 
 	def total_rate
-		if self.id != nil
-			@task = Task.find(self.id)
-		else
-			@task = Task.new
-		end
+		self.set_task
 		@operations = @task.operations
 		total = 0
 		@operations.each do |o|
@@ -35,11 +55,7 @@ class Task < ActiveRecord::Base
 	end
 
 	def total_user_rate
-		if self.id != nil
-			@task = Task.find(self.id)
-		else
-			@task = Task.new
-		end
+		self.set_task
 		@operations =@task.operations
 		total = 0
 		@operations.each do |o|
@@ -49,11 +65,7 @@ class Task < ActiveRecord::Base
 	end
 
 	def total_task_rate
-		if self.id != nil
-			@task = Task.find(self.id)
-		else
-			@task = Task.new
-		end
+		self.set_task
 		@operations = @task.operations
 		cost = 0
 		@operations.each do |o|
@@ -63,11 +75,7 @@ class Task < ActiveRecord::Base
 	end
 
 	def total_users_average_rate
-		if self.id != nil
-			@task = Task.find(self.id)
-		else
-			@task = Task.new
-		end
+		self.set_task
 		@operations = @task.operations
 		total = 0
 		@operations.each do |o|
@@ -81,11 +89,7 @@ class Task < ActiveRecord::Base
 	end
 
 	def average_cost
-		if self.id != nil
-			@task = Task.find(self.id)
-		else
-			@task = Task.new
-		end
+		self.set_task
 		if @task.operations.count != 0
 			total = @task.total_rate/@task.operations.count
 		else
@@ -94,15 +98,11 @@ class Task < ActiveRecord::Base
 	end 
 
 	def average_total
-		if self.id != nil
-			@task = Task.find(self.id)
-		else
-			@task = Task.new
-		end
+		self.set_task
 		if @task.operations.count != 0
 			total = @task.total_task_rate/@task.operations.count
 		else
-			@task.total_rate
+			@task.total_task_rate
 		end
 	end
 

@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :operations
-  resources :operations
+  resources :histories, only: [:index, :show]
   resources :tasks
   get 'admin/new'
   

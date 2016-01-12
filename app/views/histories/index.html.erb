@@ -1,0 +1,100 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Tasks</h1>
+
+<%= form_tag histories_path, :method => 'get' do %>
+    <%= label_tag "From" %>
+    <%= text_field_tag :from, params[:from] %>
+    <%= label_tag "To:" %>
+    <%= text_field_tag :to, params[:to] %>
+    <%= submit_tag "Search", class: "price" %>
+<% end %>
+<br>
+<table class='user-table'>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Start</th>
+      <th>Finish</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td id='id'><%= task.id %></td>
+        <td><%= task.name %></td>
+        <td><%= task.start %></td>
+        <td><%= task.task_end %></td>
+        <td><%= task.set_status %></td>                
+        <td><%= link_to 'Show', task %></td>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<strong>Total Users's Cost: </strong><%= @users_cost %> $<br>
+<strong>Total Operations' Cost: </strong><%= @operations_cost %> $<br>
+<strong>Total Task's Cost: </strong><%= @cost %> $
+<br><br>
+
+<h1>Listing Operations</h1>
+
+<table class='user-table'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Count</th>
+      <th>Rate</th>
+      <th>Duration</th>
+      <th>Total duration</th>      
+      <th>Total cost</th>
+      <th>Average</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @operations.each do |operation| %>
+      <tr>
+        <td><%= operation.name %></td>
+        <td><%= operation.count %></td>
+        <td><%= operation.rate %></td>
+        <td><%= operation.duration %></td>
+        <td><%= operation.total_duration %></td>
+        <td><%= operation.same_operation_total_cost %></td>
+        <td><%= operation.same_operation_average %></td>
+        <td><%= link_to 'Show', operation %></td>
+      </tr>
+      <% end %>
+  </tbody>
+</table>
+<br>
+<h1>Listing Users</h1>
+<table class='user-table'>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Rate</th>
+      <th>Total Cost</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td id='id'><%= user.id %></td>
+        <td><%= user.name %></td>
+        <td><%= user.surname %></td>
+        <td><%= user.rate %></td>
+        <td><%= user.total_user_cost %></td>
+        <td><%= link_to 'Show', user %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
